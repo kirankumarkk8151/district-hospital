@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "district-hospital-492f5": {
+      "hosting": {
+        "district_hospital": [
+          "district-hospital-492f5"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "district-hospital-492f5"
+  }
+}

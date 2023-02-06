@@ -91,6 +91,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "district_hospital:build:production",
+            "firebaseProject": "district-hospital-492f5",
+            "firebaseHostingSite": "district-hospital-492f5"
+          }
         }
       }
     }
