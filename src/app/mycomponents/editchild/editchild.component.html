@@ -1,0 +1,64 @@
+
+<div class="container my-2">
+    <div class="card border-0 shadow p-3">
+        <div class="form-floating mb-3 tetx-center ">
+            <h5 class="text-center text-warning">Basic Details</h5>
+        </div>
+  <form class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label">SHM NO</label>
+        <input type="text" class="form-control" id="SHM_NO" name="shmno" [(ngModel)]="SHM_NO">
+      </div>
+    <div class="col-md-6">
+      <label class="form-label">Child Name</label>
+      <input type="text" class="form-control" id="childName" name="childname" [(ngModel)]="childName">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Father Name</label>
+      <input type="text" class="form-control" id="fatherName" name="fatherName" [(ngModel)]="fatherName">
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Mother Name</label>
+        <input type="text" class="form-control" id="MotherName" name="motherName" [(ngModel)]="motherName">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Gender</label>
+        <select id="gender" class="form-select" name="gender" [(ngModel)]="gender">
+          <option selected>Choose Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>other</option>
+        </select>
+      </div>
+    <div class="col-md-4">
+        <label class="form-label">Age</label>
+        <input type="number" class="form-control" id="age"name="sge" [(ngModel)]="age">
+      </div>
+    <div class="col-md-4">
+        <label class="form-label">Date of Admission</label>
+        <input type="date" class="form-control" id="dateOfAdmission"name="sge" [(ngModel)]="dateOfAdmission">
+      </div>
+    <div class="col-md-6">
+        <label class="form-label">Distict</label>
+        <select id="district" class="form-select" name="district" [(ngModel)]="district"(change)="onDistrictChange()">
+          <option selected>Choose District</option>
+          <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
+        </select>
+      </div>
+    <div class="col-md-6">
+        <label class="form-label">Taluk</label>
+        <select id="taluk" class="form-select" name="taluk" [(ngModel)]="taluk">
+          <option selected>Choose Taluk</option>
+          <option *ngFor="let taluk of taluksOfDistrict" [value]="taluk">{{ taluk }}</option>
+        </select>
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-control" id="age"name="address" [(ngModel)]="address">
+      </div>
+    <div class="col-12">
+        <button type="button" class="btn btn-outline-success" (click)="editChild()">Save Changes</button>
+    </div>
+  </form>
+</div>
+</div>

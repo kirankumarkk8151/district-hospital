@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,8 +11,13 @@ export class RegisterComponent {
 
   email : string = '';
   password : any;
-
-  constructor(private auth : AuthService) { }
+  user:any;
+  constructor(private auth: AuthService, private route:Router) {  
+    this.user=localStorage.getItem('user')
+  if (this.user==null){
+    route.navigate([''])
+  }
+}
 
   ngOnInit(): void {
   }

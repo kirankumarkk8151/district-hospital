@@ -1,2 +1,55 @@
-<button name="logout" class="btn btn-danger float-end mx-3 my-2" (click)="logout();">Logout</button>
-welcome {{user.email}}
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Welcome <span style="color:green">{{display}}</span></a>
+      <form class="d-flex">
+        <button class="btn btn-outline-success mx-3" type="submit" (click)="register();">Register new User</button>
+        <button class="btn btn-outline-danger" type="submit" (click)="logout();">Logout</button>
+      </form>
+    </div>
+  </nav>
+  <div class="container-fluid">
+        <div class=" mt-2 mb-5 mx-3 my-3">
+          <div class="top menu my-3 d-flex justify-content-between">
+            <h5 class="text-danger"> Child List</h5>
+            <a href="/addchild" class="btn btn-primary" type="submit" >Add New Child</a>
+          </div>
+            <div class="card p-3 shadow">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">SHM NO</th>
+                            <th scope="col">Child Name</th>
+                            <th scope="col">Father Name</th>
+                            <th scope="col">Mother Name</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Date Of Admission</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let ch of childList">
+                            <td>{{ch.SHM_NO}}</td>
+                            <td >{{ch.childName}}</td>
+                            <td>{{ch.fatherName}}</td>
+                            <td>{{ch.motherName}}</td>
+                            <td>{{ch.gender}}</td>
+                            <td>{{ch.age}}</td>
+                            <td>{{ch.dateOfAdmission}}</td>
+                            <td class="text-nowrap">
+                                
+                                <button class="btn btn-outline-primary mx-2" (click)="getChildData(ch)"><i class="fa-regular fa-eye"></i></button>
+                                <button class="btn btn-outline-success mx-2" (click)="editChild(ch)" ><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button class="btn btn-outline-danger mx-2" (click)="deleteChild(ch)"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+

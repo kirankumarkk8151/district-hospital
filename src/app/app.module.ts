@@ -17,6 +17,9 @@ import { ForgotPasswordComponent } from './mycomponents/forgot-password/forgot-p
 import { AngularFireModule } from '@angular/fire/compat';
 
 import { RegisterComponent } from './mycomponents/register/register.component';
+import { AddchildComponent } from './mycomponents/addchild/addchild.component';
+import { ViewchildComponent } from './mycomponents/viewchild/viewchild.component';
+import { EditchildComponent } from './mycomponents/editchild/editchild.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { RegisterComponent } from './mycomponents/register/register.component';
     AdminHomeComponent,
     ForgotPasswordComponent,
     
-    RegisterComponent
+    RegisterComponent,
+         AddchildComponent,
+         ViewchildComponent,
+         EditchildComponent
   ],
   imports: [
     BrowserModule,

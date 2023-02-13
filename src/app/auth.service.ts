@@ -9,15 +9,15 @@ import { GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider} from '@an
 
 export class AuthService {
   user:any=''
+  isLoggedin=false;
 
   constructor(private fireauth:AngularFireAuth,private router:Router) { }
   // login method
   login(email : string, password : string) {
     this.fireauth.signInWithEmailAndPassword(email,password).then( res => {
+        //this.isLoggedin=true
+        localStorage.setItem('user',JSON.stringify(res.user))
         localStorage.setItem('token','true');
-        
-
-
         if(res.user?.emailVerified == true) {
           this.router.navigate(['admin']);
           this.user=res.user;
@@ -48,6 +48,8 @@ export class AuthService {
   logout() {
     this.fireauth.signOut().then( () => {
       localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      this.isLoggedin=false
       this.router.navigate(['']);
     }, err => {
       alert(err.message);
@@ -76,8 +78,10 @@ export class AuthService {
   //sign in with google
   googleSignIn() {
     return this.fireauth.signInWithPopup(new GoogleAuthProvider).then(res => {
-this.user=res.user?.email
-localStorage.setItem('user',this.user)
+this.user=res.user
+this.isLoggedin=true
+      
+      localStorage.setItem('user',JSON.stringify(res.user));
       this.router.navigate(['/admin']);
       localStorage.setItem('token',JSON.stringify(res.user?.uid));
       
